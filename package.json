@@ -5,15 +5,15 @@
     "build": "DISABLE_ESLINT_PLUGIN=true react-scripts build",
     "cypress:open": "cypress open",
     "eject": "react-scripts eject",
+    "globalLint": "eslint './'",
+    "pre-commit": "lint-staged",
+    "prepare": "husky install",
+    "prettier": "prettier --write .",
     "server": "json-server -p3000 --watch db.json",
     "start": "ESLINT_NO_DEV_ERRORS=true react-scripts start",
+    "stylelint": "npx stylelint \"**/*.{js,jsx,ts,tsx,css,scss,md}\" ",
     "test": "react-scripts test",
     "test:e2e": "cypress run"
-  },
-  "lint-staged": {
-    "*.css": "stylelint --fix",
-    "*.js": "eslint --cache --fix",
-    "*.{js,css,md}": "prettier --write"
   },
   "browserslist": {
     "production": [
@@ -75,7 +75,7 @@
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-testing-library": "^3.10.2",
-    "husky": "^6.0.0",
+    "husky": "^7.0.1",
     "lint-staged": "^11.0.0",
     "prettier": "2.3.1",
     "stylelint": "^13.13.1",
@@ -88,11 +88,20 @@
     "build": [
       "`DISABLE_ESLINT_PLUGIN=true` environment variable added to not get ESLINT blocking the Build"
     ],
-    "start": [
-      "`ESLINT_NO_DEV_ERRORS=true` environment variable added to not get ESLINT blocking the Rendering"
-    ],
     "cypress:open": [
       "Run Cypress tests using the graphical test runner"
+    ],
+    "globalLint": [
+      "ESLint - Personal ESLint configuration"
+    ],
+    "pre-commit": [
+      "Husky - Pre-Commit Hook - Run Lint Staged (configured in .lintstagedrc file"
+    ],
+    "prettier": [
+      "Prettier"
+    ],
+    "start": [
+      "`ESLINT_NO_DEV_ERRORS=true` environment variable added to not get ESLINT blocking the Rendering"
     ],
     "test:e2e": [
       "Run Cypress tests using with the command line"
